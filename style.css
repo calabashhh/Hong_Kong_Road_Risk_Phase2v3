@@ -1,0 +1,294 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #111;
+}
+
+#map {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* ------------------------------------------
+   General Leaflet control styling
+------------------------------------------- */
+
+.map-title-control,
+.view-control,
+.legend,
+.priority-list {
+  background: rgba(18, 22, 28, 0.92);
+  color: #f3f4f6;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ------------------------------------------
+   Title / subtitle
+------------------------------------------- */
+
+.map-title-control {
+  padding: 10px 12px;
+  max-width: 330px;
+}
+
+.map-title-main {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  margin-bottom: 3px;
+}
+
+.map-title-sub {
+  font-size: 11px;
+  line-height: 1.35;
+  color: #cfd5df;
+}
+
+.map-title-note {
+  font-size: 10px;
+  margin-top: 6px;
+  color: #aab3c2;
+}
+
+/* ------------------------------------------
+   View toggle control
+------------------------------------------- */
+
+.view-control {
+  padding: 7px;
+}
+
+.view-control-title {
+  font-size: 11px;
+  color: #d8dde8;
+  font-weight: 700;
+  margin: 0 0 5px 2px;
+}
+
+.view-control button {
+  display: block;
+  width: 100%;
+  margin: 3px 0;
+  padding: 6px 9px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f2f4f7;
+  font-size: 11px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.view-control button:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.view-control button.active {
+  background: #f2b447;
+  color: #171717;
+  font-weight: 700;
+}
+
+/* ------------------------------------------
+   Legend
+------------------------------------------- */
+
+.legend {
+  padding: 9px 11px;
+  font-size: 11px;
+  min-width: 185px;
+}
+
+.legend-title {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.legend-subtitle {
+  font-size: 10px;
+  color: #c8d0db;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.legend-swatch-line {
+  width: 24px;
+  height: 0;
+  border-top: 4px solid #ccc;
+  border-radius: 3px;
+  margin-right: 7px;
+}
+
+.legend-label {
+  white-space: nowrap;
+}
+
+/* ------------------------------------------
+   Priority list control
+------------------------------------------- */
+
+.priority-list {
+  padding: 9px 10px;
+  width: 270px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 11px;
+}
+
+.priority-list-title {
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.priority-list-subtitle {
+  color: #c8d0db;
+  font-size: 10px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.priority-item {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  gap: 6px;
+  align-items: start;
+  padding: 5px 4px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.priority-item:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.priority-rank {
+  color: #f2b447;
+  font-weight: 700;
+}
+
+.priority-name {
+  color: #f6f7f9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.priority-meta {
+  color: #aeb7c5;
+  font-size: 10px;
+}
+
+.priority-score {
+  color: #f6f7f9;
+  font-weight: 700;
+  font-size: 10px;
+}
+
+/* ------------------------------------------
+   Floating hover card
+------------------------------------------- */
+
+.hover-card {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+  z-index: 1000;
+  max-width: 315px;
+}
+
+.hover-card-inner {
+  background: rgba(244, 246, 248, 0.96);
+  color: #17202a;
+  padding: 12px 14px;
+  border-radius: 9px;
+  width: 292px;
+  font-size: 11.5px;
+  line-height: 1.35;
+  border-left: 6px solid #8f1d2c;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
+}
+
+.hover-card-inner.unmodeled {
+  border-left-color: #8f969e;
+}
+
+.hover-title {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.hover-subtitle {
+  font-size: 10.8px;
+  color: #55606c;
+  margin-bottom: 5px;
+}
+
+.hover-section-title {
+  font-weight: 800;
+  font-size: 11.5px;
+  margin-top: 7px;
+  margin-bottom: 2px;
+}
+
+.hover-card-inner hr {
+  margin: 7px 0;
+  border: 0;
+  border-top: 1px solid #ccd3db;
+}
+
+.hover-muted {
+  color: #5e6874;
+}
+
+.hover-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 7px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 10.5px;
+}
+
+/* ------------------------------------------
+   Leaflet popup fallback
+------------------------------------------- */
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Make zoom controls fit the dark UI a bit better */
+.leaflet-control-zoom a {
+  background: rgba(18, 22, 28, 0.92) !important;
+  color: #f3f4f6 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(18, 22, 28, 0.7) !important;
+  color: #cfd5df !important;
+}
+
+.leaflet-control-attribution a {
+  color: #d8e7ff !important;
+}
